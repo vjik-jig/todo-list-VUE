@@ -1,16 +1,20 @@
 <template>
   <div id="app">
+    <h2>Todo list</h2>
+    <AddTodo v-on:add-todo="addTodo" />
     <Todos v-bind:todos="todos" v-on:delete-todo="deleteTodo" />
   </div>
 </template>
 
 <script>
 import Todos from "./components/Todos";
+import AddTodo from "./components/AddTodo";
 
 export default {
   name: "app",
   components: {
-    Todos
+    Todos,
+    AddTodo
   },
   data() {
     return {
@@ -58,7 +62,7 @@ export default {
 #app {
   font-family: "Roboto", sans-serif;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   text-align: center;
 }
 </style>

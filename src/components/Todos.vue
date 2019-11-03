@@ -1,7 +1,5 @@
 <template>
   <div>
-    <h2>Todo list</h2>
-    <AddTodo v-on:add-todo="addTodo" />
     <ul>
       <li v-bind:key="todo.id" v-for="todo in todos">
         <Todo v-bind:todo="todo" v-on:delete-todo="$emit('delete-todo', todo.id)" />
@@ -12,13 +10,11 @@
 
 <script>
 import Todo from "./Todo";
-import AddTodo from "./AddTodo";
 
 export default {
   name: "Todos",
   components: {
-    Todo,
-    AddTodo
+    Todo
   },
   props: ["todos"]
 };
@@ -31,7 +27,6 @@ ul {
   text-align: left;
   display: flex;
   flex-direction: column;
-  
 }
 li {
   list-style: none;
